@@ -2,6 +2,8 @@ package models;
 
 import java.util.ArrayList;
 
+import enums.Pokedex;
+
 public class Pokemon {
 
 	// Propiedades
@@ -10,14 +12,15 @@ public class Pokemon {
 	private Pokedex nombre;
 	private TipoPokemon tipo1, tipo2;
 	private Estado estado;
-	private int attack, defense, specialAttack, specialDefense, speed, maxHP, actualHP, nivel, baseHP;
+	private int baseSpeed, actualHP, nivel, baseHP, maxHP;
+	private double baseAttack, baseDefense, baseSpecialAttack, baseSpecialDefense;
 	private ArrayList<Movimiento> movimientos;
 	
 	
 	
 	// Constructor
-	public Pokemon(int id, Pokedex nombre, TipoPokemon tipo1, TipoPokemon tipo2, Estado estado, int attack,
-			int defense, int specialAttack, int specialDefense, int speed, ArrayList<Movimiento> movimientos,
+	public Pokemon(int id, Pokedex nombre, TipoPokemon tipo1, TipoPokemon tipo2, Estado estado, double baseAttack,
+			double baseDefense, double baseSpecialAttack, double baseSpecialDefense, int baseSpeed, ArrayList<Movimiento> movimientos,
 			int baseHP, int maxHP, int actualHP, int nivel) {
 		super();
 		this.id = id;
@@ -25,23 +28,16 @@ public class Pokemon {
 		this.tipo1 = tipo1;
 		this.tipo2 = tipo2;
 		this.estado = estado;
-		this.attack = attack;
-		this.defense = defense;
-		this.specialAttack = specialAttack;
-		this.specialDefense = specialDefense;
-		this.speed = speed;
+		this.baseAttack = baseAttack;
+		this.baseDefense = baseDefense;
+		this.baseSpecialAttack = baseSpecialAttack;
+		this.baseSpecialDefense = baseSpecialDefense;
+		this.baseSpeed = baseSpeed;
 		this.movimientos = movimientos;
 		this.baseHP = baseHP;
-		this.maxHP = this.getMaxHP(this.baseHP, this.specialAttack, this.specialAttack);
+		this.maxHP = this.getMaxHP(this.baseHP, this.nivel);
 		this.actualHP = actualHP;
 		this.nivel = nivel;
-	}
-	
-	public Pokemon(Pokedex nombre) {
-		super();
-		if (Pokedex nombre.equals(Pokedex.Bulbasaur)) {
-			
-		}
 	}
 
 	
@@ -72,84 +68,94 @@ public class Pokemon {
 	}
 
 
-	public double getAttack(int baseStat, int statExp, int level) {
+	public double getAttack(int baseAttack, int level) {
 		
 		int dv;
 		do {
 			dv = (int)(Math.random()*18);
 		}while(dv>15 || dv==0);
 		
+		int statExp = 5000; //Establecemos la Stat Experience a 5000 para todos los Pokémon.
+		
 		/**
 		 * Cálculo de Stats para las generaciones I y II
 		 */
-		int attack = ((((baseStat+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
+		int attack = ((((baseAttack+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
 		
 		
 		return attack;
 	}
 
 
-	public double getDefense(int baseStat, int statExp, int level) {
+	public double getDefense(int baseDefense, int level) {
 		
 		int dv;
 		do {
 			dv = (int)(Math.random()*18);
 		}while(dv>15 || dv==0);
 		
+		int statExp = 5000; //Establecemos la Stat Experience a 5000 para todos los Pokémon.
+		
 		/**
 		 * Cálculo de Stats para las generaciones I y II
 		 */
-		int defense = ((((baseStat+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
+		int defense = ((((baseDefense+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
 		
 		return defense;
 	}
 
 
-	public double getSpecialAttack(int baseStat, int statExp, int level) {
+	public double getSpecialAttack(int baseSpecialAttack, int level) {
 		
 		int dv;
 		do {
 			dv = (int)(Math.random()*18);
 		}while(dv>15 || dv==0);
 		
+		int statExp = 5000; //Establecemos la Stat Experience a 5000 para todos los Pokémon.
+		
 		/**
 		 * Cálculo de Stats para las generaciones I y II
 		 */
-		int specialAttack = ((((baseStat+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
+		int specialAttack = ((((baseSpecialAttack+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
 		
 		return specialAttack;
 		
 	}
 
 
-	public double getSpecialDefense(int baseStat, int statExp, int level) {
+	public double getSpecialDefense(int baseSpecialDefense, int level) {
 		
 		int dv;
 		do {
 			dv = (int)(Math.random()*18);
 		}while(dv>15 || dv==0);
 		
+		int statExp = 5000; //Establecemos la Stat Experience a 5000 para todos los Pokémon.
+		
 		/**
 		 * Cálculo de Stats para las generaciones I y II
 		 */
-		int specialDefense = ((((baseStat+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
+		int specialDefense = ((((baseSpecialDefense+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
 		
 		
 		return specialDefense;
 	}
 
 
-	public int getSpeed(int baseStat, int statExp, int level) {
+	public int getSpeed(int baseSpeed, int level) {
 		
 		int dv;
 		do {
 			dv = (int)(Math.random()*18);
 		}while(dv>15 || dv==0);
 		
+		int statExp = 5000; //Establecemos la Stat Experience a 5000 para todos los Pokémon.
+		
 		/**
 		 * Cálculo de Stats para las generaciones I y II
 		 */
-		int speed = ((((baseStat+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
+		int speed = ((((baseSpeed+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
 		
 		return speed;
 	}
@@ -160,7 +166,7 @@ public class Pokemon {
 	}
 
 
-	public double getMaxHP(int baseHP, int statExp, int level) {
+	public int getMaxHP(int baseHP, int level) {
 		
 		/**
 		 * In generations I and II, the HP IV is calculated by taking the least significant bit or LSB (the final binary digit) of the Attack,
@@ -172,26 +178,28 @@ public class Pokemon {
 		int speedLSB;
 		int specialLSB;
 		
+		int statExp = 5000; //Establecemos la Stat Experience a 5000 para todos los Pokémon.
 		
-		if (this.attack%2==0) {
+		
+		if (this.baseAttack%2==0) {
 			attackLSB=0;
 		}else {
 			attackLSB=1;
 		}
 		
-		if (this.defense%2==0) {
+		if (this.baseDefense%2==0) {
 			defenseLSB=0;
 		}else {
 			defenseLSB=1;
 		}
 		
-		if (this.speed%2==0) {
+		if (this.baseSpeed%2==0) {
 			speedLSB=0;
 		}else {
 			speedLSB=1;
 		}
 		
-		if (((this.specialAttack+this.specialDefense)/2)%2==0) {
+		if (((this.baseSpecialAttack+this.baseSpecialDefense)/2)%2==0) {
 			specialLSB=0;
 		}else {
 			specialLSB=1;
@@ -203,7 +211,7 @@ public class Pokemon {
 		/**
 		 * Cálculo de HP para las generaciones I y II
 		 */
-		int maxHP = ((((baseHP+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+level+10;
+		int maxHP = (int)((((baseHP+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+level+10;
 		
 		return maxHP;
 	}
