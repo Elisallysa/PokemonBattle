@@ -6,10 +6,13 @@ public class EntrenadorCPU extends AbstractEntrenador{
 		
 	public EntrenadorCPU(String nombre, Equipo equipo) {
 		super(nombre, equipo);
+		this.nombre = this.generateName();
 	}
 	
 	// Getters y setters
-		
+	
+	
+	
 	// Métodos
 	
 	public String generateName() {

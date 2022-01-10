@@ -24,10 +24,6 @@ public abstract class AbstractEntrenador {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public Equipo getEquipo() {
 		return equipo;
 	}
