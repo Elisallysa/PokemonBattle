@@ -6,12 +6,12 @@ public class Equipo {
 
 	// Propiedades
 	
-	protected ArrayList<Pokemon> equipo_pokemon;
+	protected ArrayList<Pokemon> pokEquipo;
 
 	
 	// Constructor
 	public Equipo() {
-		equipo_pokemon = new ArrayList<>();
+		pokEquipo = new ArrayList<>();
 	}
 	
 		
@@ -21,5 +21,7 @@ public class Equipo {
 	
 	// Métodos
 		
-	
+	public void addPokemon (Pokemon p) {
+		this.pokEquipo.add(p);
+	}
 }
