@@ -6,28 +6,21 @@ public class Pokemon {
 
 	// Propiedades
 	
-	private int numero;
-	private String nombre;
-	private TipoPokemon tipo1;
-	private TipoPokemon tipo2;
+	private int id;
+	private Pokedex nombre;
+	private TipoPokemon tipo1, tipo2;
 	private Estado estado;
-	private int attack;
-	private int defense;
-	private int specialAttack;
-	private int specialDefense;
-	private int speed;
+	private int attack, defense, specialAttack, specialDefense, speed, maxHP, actualHP, nivel, baseHP;
 	private ArrayList<Movimiento> movimientos;
-	private int maxHP;
-	private int actualHP;
-	private int nivel;
+	
 	
 	
 	// Constructor
-	public Pokemon(int numero, String nombre, TipoPokemon tipo1, TipoPokemon tipo2, Estado estado, int attack,
+	public Pokemon(int id, Pokedex nombre, TipoPokemon tipo1, TipoPokemon tipo2, Estado estado, int attack,
 			int defense, int specialAttack, int specialDefense, int speed, ArrayList<Movimiento> movimientos,
-			int maxHP, int actualHP, int nivel) {
+			int baseHP, int maxHP, int actualHP, int nivel) {
 		super();
-		this.numero = numero;
+		this.id = id;
 		this.nombre = nombre;
 		this.tipo1 = tipo1;
 		this.tipo2 = tipo2;
@@ -38,20 +31,28 @@ public class Pokemon {
 		this.specialDefense = specialDefense;
 		this.speed = speed;
 		this.movimientos = movimientos;
-		this.maxHP = maxHP;
+		this.baseHP = baseHP;
+		this.maxHP = this.getMaxHP(this.baseHP, this.specialAttack, this.specialAttack);
 		this.actualHP = actualHP;
 		this.nivel = nivel;
+	}
+	
+	public Pokemon(Pokedex nombre) {
+		super();
+		if (Pokedex nombre.equals(Pokedex.Bulbasaur)) {
+			
+		}
 	}
 
 	
 	// Getters y setters
 	
-	public int getNumero() {
-		return numero;
+	public int getid() {
+		return id;
 	}
 
 
-	public String getNombre() {
+	public Pokedex getNombre() {
 		return nombre;
 	}
 
@@ -159,7 +160,7 @@ public class Pokemon {
 	}
 
 
-	public double getMaxHP(int baseStat, int statExp, int level) {
+	public double getMaxHP(int baseHP, int statExp, int level) {
 		
 		/**
 		 * In generations I and II, the HP IV is calculated by taking the least significant bit or LSB (the final binary digit) of the Attack,
@@ -202,7 +203,7 @@ public class Pokemon {
 		/**
 		 * Cálculo de HP para las generaciones I y II
 		 */
-		int maxHP = ((((baseStat+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+level+10;
+		int maxHP = ((((baseHP+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+level+10;
 		
 		return maxHP;
 	}
