@@ -6,6 +6,8 @@ import java.util.Scanner;
 import models.AbstractEntrenador;
 import models.Combate;
 import models.EntrenadorHumano;
+import models.Pokedex;
+import models.Pokemon;
 
 public class MainApp {
 
@@ -13,11 +15,23 @@ public class MainApp {
 		
 		Scanner s = new Scanner (System.in);
 		
+		/**
+		 * Creación de Pokémon:
+		 */
+		
+		Pokemon Bulbasaur = new Pokemon (1, Pokedex.Bulbasaur, null, null, null, 49, 49, 65, 65, 45, null, 0, 0, 10);
+		Pokemon Squirtle = new Pokemon (7, Pokedex.Squirtle, null, null, null, 48, 65, 50, 64, 43, null, 0, 0, 10);
+		Pokemon Charmander = new Pokemon (4, Pokedex.Charmander, null, null, null, 52, 43, 60, 50, 65, null, 0, 0, 10);
+		
 		String trainer = "";
 		
-		System.out.println("Te damos la bienvenida al SIMULADOR DE COMBATES POKÉMON\nNo quiero hacer suposiciones, así que dime:\n¿Con qué género te identificas? ¿Masculino (M), femenino (F) u otro (O)");
+		System.out.println("Te damos la bienvenida al SIMULADOR DE COMBATES POKÉMON\nNo quiero hacer suposiciones, así que dime:\n¿Con qué género te identificas?");
 		
-		String sexo = s.nextLine();
+		String sexo;
+		do {
+		System.out.println("¿Masculino (M), femenino (F) u otro (O)?");	
+		sexo = s.nextLine();
+		} while (!sexo.equalsIgnoreCase("M") && !sexo.equalsIgnoreCase("F") && !sexo.equalsIgnoreCase("O"));
 		
 		try {
 			if (sexo.equalsIgnoreCase("M")) {
@@ -44,7 +58,7 @@ public class MainApp {
 				System.out.println("Uy, qué nombre tan largo tienes. Creo que somos amigos, ¿no? ¡Dime la forma corta!");
 			}
 			}catch (Exception e) {
-				System.out.println("¿Qué has escrito ahí? Venga, dime tu nombre real.");
+				System.out.println("¿Qué has escrito ahí?");
 			}
 			
 			
@@ -55,7 +69,11 @@ public class MainApp {
 		
 		pokeCombate.setEntrenadorHumano(entrenador1);
 		
+		System.out.println("¡Ya estamos listos!¡Ahora elige hasta tres Pokémon para formar tu equipo!");
+		System.out.println("LISTA POKÉMON: 1. 2. 3. 4.");
+
 		
+		// entrenador1.getEquipo().addPokemon();
 		
 		
 		
