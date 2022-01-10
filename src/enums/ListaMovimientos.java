@@ -1,0 +1,6 @@
+package enums;
+
+public enum ListaMovimientos {
+	
+	PLACAJE, GRUÑIDO, DRENADORAS, LÁTIGO_CEPA, ARAÑAZO, ASCUAS, PANTALLA_DE_HUMO, LÁTIGO, PISTOLA_AGUA, REFUGIO;
+}
