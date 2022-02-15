@@ -11,7 +11,7 @@ public class Equipo {
 	
 	// Constructor
 	public Equipo() {
-		pokEquipo = new ArrayList<>();
+		pokEquipo = new ArrayList<Pokemon>();
 	}
 	
 		

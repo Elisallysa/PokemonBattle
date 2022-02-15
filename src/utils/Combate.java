@@ -1,4 +1,8 @@
-package models;
+package utils;
+
+import models.EntrenadorCPU;
+import models.EntrenadorHumano;
+import models.Equipo;
 
 public class Combate {
 
@@ -31,8 +35,15 @@ public class Combate {
 	
 	// Métodos
 	
-	public Equipo empiezaTurno() {
+	public boolean empiezaCPU() {
+		int speedPokeCPU = entrenadorCPU.getEquipo().getFirstPokemon().getSpeed();
+		int speedPokeEntrenador = entrenadorHumano.getEquipo().getFirstPokemon().getSpeed();
 		
+		if (speedPokeCPU > speedPokeEntrenador) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public void aplicarMovimiento() {
@@ -41,6 +52,10 @@ public class Combate {
 	
 	public boolean isFinished() {
 		return true;
+	}
+	
+	public void eligeAtaque() {
+		
 	}
 	
 }

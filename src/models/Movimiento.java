@@ -1,28 +1,38 @@
 package models;
 
+import enums.Categoria;
+import enums.Estados;
+import enums.ListaMovimientos;
+import enums.Tipos;
+
 public class Movimiento {
 
 	// Propiedades
 	
 	private int idMovimiento;
-	private String nombre;
-	private TipoPokemon tipo;
+	private ListaMovimientos nombre;
+	private Tipos tipo;
 	private Categoria categoria;
 	private int maxPP;
 	private int actualPP;
 	private int damage;
-	private int cambiaAttack;
-	private int cambiaDef;
-	private int cambiaSpAttack;
-	private int cambiaSpDef;
-	private int cambiaSpeed;
-	private Estado aplicaestado;
-	
+	private int cambiaAttackAtacante;
+	private int cambiaDefAtacante;
+	private int cambiaSpAttackAtacante;
+	private int cambiaSpDefAtacante;
+	private int cambiaSpeedAtacante;
+	private int cambiaAttackAtacado;
+	private int cambiaDefAtacado;
+	private int cambiaSpAttackAtacado;
+	private int cambiaSpDefAtacado;
+	private int cambiaSpeedAtacado;
+	private Estados aplicaEstado;
 	
 	// Constructor
 	
-	public Movimiento(int idMovimiento, String nombre, TipoPokemon tipo, Categoria categoria, int maxPP, int actualPP, int damage, int cambiaAttack,
-			int cambiaDef, int cambiaSpAttack, int cambiaSpDef, int cambiaSpeed, Estado aplicaestado) {
+	public Movimiento(int idMovimiento, ListaMovimientos nombre, Tipos tipo, Categoria categoria, int maxPP, int actualPP, int damage, int cambiaAttackAtacante,
+			int cambiaDefAtacante, int cambiaSpAttackAtacante, int cambiaSpDefAtacante, int cambiaSpeedAtacante, int cambiaAttackAtacado,
+			int cambiaDefAtacado, int cambiaSpAttackAtacado, int cambiaSpDefAtacado, int cambiaSpeedAtacado, Estados aplicaestado) {
 		super();
 		this.idMovimiento = idMovimiento;
 		this.nombre = nombre;
@@ -31,29 +41,17 @@ public class Movimiento {
 		this.maxPP = maxPP;
 		this.actualPP = actualPP;
 		this.damage = damage;
-		this.cambiaAttack = cambiaAttack;
-		this.cambiaDef = cambiaDef;
-		this.cambiaSpAttack = cambiaSpAttack;
-		this.cambiaSpDef = cambiaSpDef;
-		this.cambiaSpeed = cambiaSpeed;
-		this.aplicaestado = aplicaestado;
-	}
-	
-	public Movimiento(int idMovimiento) {
-		super();
-		this.idMovimiento = idMovimiento;
-		this.nombre = "Placaje";
-		this.tipo = tipo;
-		this.categoria = categoria;
-		this.maxPP = maxPP;
-		this.actualPP = actualPP;
-		this.damage = damage;
-		this.cambiaAttack = cambiaAttack;
-		this.cambiaDef = cambiaDef;
-		this.cambiaSpAttack = cambiaSpAttack;
-		this.cambiaSpDef = cambiaSpDef;
-		this.cambiaSpeed = cambiaSpeed;
-		this.aplicaestado = aplicaestado;
+		this.cambiaAttackAtacante = cambiaAttackAtacante;
+		this.cambiaDefAtacante = cambiaDefAtacante;
+		this.cambiaSpAttackAtacante = cambiaSpAttackAtacante;
+		this.cambiaSpDefAtacante = cambiaSpDefAtacante;
+		this.cambiaSpeedAtacante = cambiaSpeedAtacante;
+		this.cambiaAttackAtacado =cambiaAttackAtacado;
+		this.cambiaDefAtacado=cambiaDefAtacado;
+		this.cambiaSpAttackAtacado=cambiaSpAttackAtacado;
+		this.cambiaSpDefAtacado=cambiaSpDefAtacado;
+		this.cambiaSpeedAtacado=cambiaSpeedAtacado;
+		this.aplicaEstado = aplicaestado;
 	}
 
 	
@@ -63,11 +61,11 @@ public class Movimiento {
 		return idMovimiento;
 	}
 
-	public String getNombre() {
+	public ListaMovimientos getNombre() {
 		return nombre;
 	}
 
-	public TipoPokemon getTipo() {
+	public Tipos getTipo() {
 		return tipo;
 	}
 
@@ -84,27 +82,97 @@ public class Movimiento {
 	}
 
 	public int getCambiaAttack() {
-		return cambiaAttack;
+		return cambiaAttackAtacante;
 	}
 
 	public int getCambiaDef() {
-		return cambiaDef;
+		return cambiaAttackAtacante;
 	}
 
 	public int getCambiaSpAttack() {
-		return cambiaSpAttack;
+		return cambiaSpAttackAtacante;
 	}
 
 	public int getCambiaSpDef() {
-		return cambiaSpDef;
+		return cambiaSpDefAtacante;
 	}
 
 	public int getCambiaSpeed() {
-		return cambiaSpeed;
+		return cambiaSpeedAtacante;
 	}
 
-	public Estado getAplicaestado() {
-		return aplicaestado;
+	public Estados getAplicaestado() {
+		return aplicaEstado;
+	}
+
+
+	public int getCambiaDefAtacante() {
+		return cambiaDefAtacante;
+	}
+
+
+	public void setCambiaDefAtacante(int cambiaDefAtacante) {
+		this.cambiaDefAtacante = cambiaDefAtacante;
+	}
+
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+
+	public int getCambiaAttackAtacado() {
+		return cambiaAttackAtacado;
+	}
+
+
+	public void setCambiaAttackAtacado(int cambiaAttackAtacado) {
+		this.cambiaAttackAtacado = cambiaAttackAtacado;
+	}
+
+
+	public int getCambiaDefAtacado() {
+		return cambiaDefAtacado;
+	}
+
+
+	public void setCambiaDefAtacado(int cambiaDefAtacado) {
+		this.cambiaDefAtacado = cambiaDefAtacado;
+	}
+
+
+	public int getCambiaSpAttackAtacado() {
+		return cambiaSpAttackAtacado;
+	}
+
+
+	public void setCambiaSpAttackAtacado(int cambiaSpAttackAtacado) {
+		this.cambiaSpAttackAtacado = cambiaSpAttackAtacado;
+	}
+
+
+	public int getCambiaSpDefAtacado() {
+		return cambiaSpDefAtacado;
+	}
+
+
+	public void setCambiaSpDefAtacado(int cambiaSpDefAtacado) {
+		this.cambiaSpDefAtacado = cambiaSpDefAtacado;
+	}
+
+
+	public int getCambiaSpeedAtacado() {
+		return cambiaSpeedAtacado;
+	}
+
+
+	public void setCambiaSpeedAtacado(int cambiaSpeedAtacado) {
+		this.cambiaSpeedAtacado = cambiaSpeedAtacado;
 	}
 		
 	

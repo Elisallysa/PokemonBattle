@@ -2,24 +2,23 @@ package models;
 
 import java.util.ArrayList;
 
+import enums.ListaMovimientos;
 import enums.Pokedex;
+import enums.Tipos;
 
 public class Pokemon {
 
 	// Propiedades
-	
 	private int id;
 	private Pokedex nombre;
-	private TipoPokemon tipo1, tipo2;
+	private Tipos tipo1, tipo2;
 	private Estado estado;
 	private int baseSpeed, actualHP, nivel, baseHP, maxHP;
 	private double baseAttack, baseDefense, baseSpecialAttack, baseSpecialDefense;
 	private ArrayList<Movimiento> movimientos;
 	
-	
-	
 	// Constructor
-	public Pokemon(int id, Pokedex nombre, TipoPokemon tipo1, TipoPokemon tipo2, Estado estado, double baseAttack,
+	public Pokemon(int id, Pokedex nombre, Tipos tipo1, Tipos tipo2, Estado estado, double baseAttack,
 			double baseDefense, double baseSpecialAttack, double baseSpecialDefense, int baseSpeed, ArrayList<Movimiento> movimientos,
 			int baseHP, int maxHP, int actualHP, int nivel) {
 		super();
@@ -53,12 +52,12 @@ public class Pokemon {
 	}
 
 
-	public TipoPokemon getTipo1() {
+	public Tipos getTipo1() {
 		return tipo1;
 	}
 
 
-	public TipoPokemon getTipo2() {
+	public Tipos getTipo2() {
 		return tipo2;
 	}
 
@@ -68,7 +67,7 @@ public class Pokemon {
 	}
 
 
-	public double getAttack(int baseAttack, int level) {
+	public double getAttack() {
 		
 		int dv;
 		do {
@@ -80,7 +79,7 @@ public class Pokemon {
 		/**
 		 * Cálculo de Stats para las generaciones I y II
 		 */
-		int attack = ((((baseAttack+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
+		double attack = ((((this.baseAttack+dv)*2+((int)(Math.sqrt(statExp))/4))*this.nivel)/100)+5;
 		
 		
 		return attack;
@@ -143,7 +142,7 @@ public class Pokemon {
 	}
 
 
-	public int getSpeed(int baseSpeed, int level) {
+	public int getSpeed() {
 		
 		int dv;
 		do {
@@ -155,7 +154,7 @@ public class Pokemon {
 		/**
 		 * Cálculo de Stats para las generaciones I y II
 		 */
-		int speed = ((((baseSpeed+dv)*2+((int)(Math.sqrt(statExp))/4))*level)/100)+5;
+		int speed = ((((this.baseSpeed+dv)*2+((int)(Math.sqrt(statExp))/4))*this.nivel)/100)+5;
 		
 		return speed;
 	}
@@ -229,9 +228,119 @@ public class Pokemon {
 	// Métodos
 	
 	public Movimiento elegirMovimiento() {
-		
+		return null;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public int getBaseSpeed() {
+		return baseSpeed;
+	}
+
+
+	public void setBaseSpeed(int baseSpeed) {
+		this.baseSpeed = baseSpeed;
+	}
+
+
+	public int getBaseHP() {
+		return baseHP;
+	}
+
+
+	public void setBaseHP(int baseHP) {
+		this.baseHP = baseHP;
+	}
+
+
+	public double getBaseAttack() {
+		return baseAttack;
+	}
+
+
+	public void setBaseAttack(double baseAttack) {
+		this.baseAttack = baseAttack;
+	}
+
+
+	public double getBaseDefense() {
+		return baseDefense;
+	}
+
+
+	public void setBaseDefense(double baseDefense) {
+		this.baseDefense = baseDefense;
+	}
+
+
+	public double getBaseSpecialAttack() {
+		return baseSpecialAttack;
+	}
+
+
+	public void setBaseSpecialAttack(double baseSpecialAttack) {
+		this.baseSpecialAttack = baseSpecialAttack;
+	}
+
+
+	public double getBaseSpecialDefense() {
+		return baseSpecialDefense;
+	}
+
+
+	public void setBaseSpecialDefense(double baseSpecialDefense) {
+		this.baseSpecialDefense = baseSpecialDefense;
+	}
+
+
+	public void setNombre(Pokedex nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public void setTipo1(Tipos tipo1) {
+		this.tipo1 = tipo1;
+	}
+
+
+	public void setTipo2(Tipos tipo2) {
+		this.tipo2 = tipo2;
+	}
+
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+
+	public void setActualHP(int actualHP) {
+		this.actualHP = actualHP;
+	}
+
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+
+
+	public void setMaxHP(int maxHP) {
+		this.maxHP = maxHP;
+	}
+
+
+	public void setMovimientos(ArrayList<Movimiento> movimientos) {
+		this.movimientos = movimientos;
+	}
+
+
 	public void mostrarMovimientos() {
 		
 	}
