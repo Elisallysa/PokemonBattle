@@ -7,19 +7,16 @@ import enums.Pokedex;
 import models.AbstractEntrenador;
 import models.EntrenadorHumano;
 import models.Pokemon;
-import utils.Bienvenida;
+import utils.Game;
 import utils.Combate;
 
 public class MainApp {
 
 	public static void main(String[] args) {
 		
-		Bienvenida bienvenida = new Bienvenida();
-		
-		
-		bienvenida.welcomeLogic();
-		
-		
+		Game game = new Game();
+		game.welcomeLogic();
+	
 	}
 
 }

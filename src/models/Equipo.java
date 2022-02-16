@@ -10,6 +10,9 @@ public class Equipo {
 
 	
 	// Constructor
+	/**
+	 * El equipo es un ArrayList de Pokemon, pensado en un principio para hacer combates de más de un Pokemon.
+	 */
 	public Equipo() {
 		pokEquipo = new ArrayList<Pokemon>();
 	}
