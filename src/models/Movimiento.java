@@ -397,7 +397,7 @@ public class Movimiento {
 		} else if (this.getNombre().equals(ListaMovimientos.ASCUAS) && atacado.getEstado().equals(Estados.quemado)) {
 			int random = (int) (Math.random() * 4.9);
 			if (random == 0) {
-				atacado.setEstado(null);
+				atacado.setEstado(Estados.sin_estado);
 				System.out.println(atacado.getNombre() + " ya no está quemado.");
 			}
 		}
