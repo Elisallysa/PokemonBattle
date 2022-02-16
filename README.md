@@ -1,15 +1,14 @@
-# Combates Pokémon
+# Combates PokÃ©mon
 
-**Descripción**
+**DescripciÃ³n**
 
-Este programa es un simulador de combates Pokémon.
+Este programa es un simulador de un combate PokÃ©mon bÃ¡sico. 
 
 **Instrucciones**
 
-1. Crea tu equipo Pokémon
-2. Elige un Pokémon
+ğŸš§EN CONSTRUCCIÃ“NğŸš§
 
-**Fuentes de documentación**
+**Fuentes de documentaciÃ³n**
 
-- Las estadísticas de daño de los ataques Pokémon se han obtenido de [Bulbapedia.bulbagarden.net](https://bulbapedia.bulbagarden.net/wiki/Damage)
+- Las estadÃ­sticas de daÃ±o de los ataques PokÃ©mon se han obtenido de [Bulbapedia.bulbagarden.net](https://bulbapedia.bulbagarden.net/wiki/Damage)
 
